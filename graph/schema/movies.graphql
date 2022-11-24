@@ -1,0 +1,25 @@
+scalar Time
+
+type Movie {
+  id: ID!
+  title: String!
+  imdbCode: String!
+  createdAt: Time!
+  updatedAt: Time!
+  views: Int!
+}
+
+
+type Query {
+  popularMovies: [Movie!]!
+}
+
+type MovieSuccess {
+  movie: Movie!
+  success: Boolean!
+}
+
+type Mutation {
+  addMovie(title: String!, imdbCode: String!): MovieSuccess!
+  updateViewsCount(movieId: ID!): MovieSuccess!
+}
